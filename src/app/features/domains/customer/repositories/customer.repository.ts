@@ -4,9 +4,10 @@ import { customerListMock } from '../../../../shared/mocks/customer-list.mock';
 import { Observable, catchError, of, throwError } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 import { customerDetailsMock } from '../../../../shared/mocks/customer-details.mock';
+import { ICustomerRepository } from '../interfaces/icustomer.repository';
 
 @Injectable()
-export class CustomerRepository {
+export class CustomerRepository implements ICustomerRepository {
   public getCustomers(): Observable<Customer[]> {
     return of(customerListMock());
   }

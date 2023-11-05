@@ -13,7 +13,8 @@ export const appConfig: ApplicationConfig = {
   providers: [
     CustomerRepository,
     ItemRepository,
-    provideHttpClient(withInterceptorsFromDi()),
     provideRouter(routes),
+    provideHttpClient(),
+    provideHttpClient(withInterceptorsFromDi()),
   ],
 };

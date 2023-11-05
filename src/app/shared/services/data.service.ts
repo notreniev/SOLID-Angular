@@ -1,22 +1,22 @@
-import { Injectable } from '@angular/core';
-import { ItemService } from '../../features/domains/Item/interfaces/item.service';
+import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Item } from '../../features/domains/Item/models/item.model';
-import { CustomerService } from '../../features/domains/customer/interfaces/customer.service';
 import {
   Customer,
   CustomerDetail,
 } from '../../features/domains/customer/models/customer.model';
 import { CustomerRepository } from '../../features/domains/customer/repositories/customer.repository';
 import { ItemRepository } from '../../features/domains/Item/repositories/item.repository';
+import { ICustomerRepository } from '../../features/domains/customer/interfaces/icustomer.repository';
+import { IItemRepository } from '../../features/domains/Item/interfaces/iitem.repository';
 
 @Injectable({
   providedIn: 'root',
 })
-export class DataService implements ItemService, CustomerService {
+export class DataService {
   constructor(
-    protected customerRepository: CustomerRepository,
-    protected itemRepository: ItemRepository
+    @Inject(CustomerRepository) private customerRepository: ICustomerRepository,
+    @Inject(ItemRepository) private itemRepository: IItemRepository
   ) {}
 
   public getCustomers(): Observable<Customer[]> {
