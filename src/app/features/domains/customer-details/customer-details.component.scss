@@ -1,0 +1,29 @@
+.details-container {
+  padding: 1rem;
+  background-color: #0cc;
+}
+
+.details-header-container {
+  display: flex;
+}
+
+.details-header-title {
+  flex: auto;
+}
+
+.details-header-title h2 {
+  margin: unset;
+}
+
+.details-header-close {
+  text-align: right;
+  flex: 1;
+}
+
+.button-close {
+  background-color: #0cc;
+  color: #ffffff;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}

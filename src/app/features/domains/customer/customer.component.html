@@ -1,0 +1,14 @@
+<h1>Applicaton Model</h1>
+
+<nav>
+  <ul>
+    <li routerLink="customers">Customer</li>
+    <li routerLink="items">Items</li>
+  </ul>
+</nav>
+
+<main>
+  <ng-container *ngIf="customersList$ | async as customers">
+    <app-customer-list [customers]="customers" />
+  </ng-container>
+</main>

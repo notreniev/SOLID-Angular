@@ -1,0 +1,43 @@
+<table aria-describedby="Customers table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="let customer of customers; let i = index"
+      [ngClass]="{
+        even: i % 2 === 0,
+        odd: i % 2 !== 0,
+      }"
+    >
+      <td [ngClass]="{ selected: customer.uid === uid }">
+        <button (click)="showDetails(customer)">
+          {{ customer.name }}
+        </button>
+      </td>
+      <td [ngClass]="{ selected: customer.uid === uid }">
+        {{ customer.email }}
+      </td>
+      <td [ngClass]="{ selected: customer.uid === uid }">
+        {{ customer.phone }}
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="3" *ngIf="uid">
+        <ng-container *ngIf="customerWithDetails$ | async as details">
+          <ng-container *ngIf="details[1].customerId === uid">
+            <app-customer-details
+              [customerWithDetails]="details"
+              (closeButtonClicked)="closeDetails($event)"
+            />
+          </ng-container>
+        </ng-container>
+      </td>
+    </tr>
+  </tbody>
+</table>

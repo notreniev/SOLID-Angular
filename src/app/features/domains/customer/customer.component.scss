@@ -1,0 +1,32 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0rem;
+}
+
+nav ul li {
+  display: inline-block;
+  min-width: 100px;
+  text-align: center;
+  margin: 0.25rem;
+  padding: 0.25rem;
+  border: solid 1px #ffffff;
+  background-color: blueviolet;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: small;
+}
+
+nav ul li:hover {
+  background-color: rgb(68, 0, 132);
+  cursor: pointer;
+}
